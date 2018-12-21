@@ -44,8 +44,9 @@ def main(argv = None):
     test_data = DataSet(s_test, l_test, FLAGS.time_start, FLAGS.time_steps, c_test)
     print("data prepared")
     model.train(train_data, test_data)
-    issue = model.predict(train_data.process(sensor_data))
-    print(issue)
+    
+    issue_ind = model.predict(train_data.process(sensor_data))
+    print(issues[issue_ind[0]])
     hash_code = model.get_hash_code(train_data.process(sensor_data))
         
 
